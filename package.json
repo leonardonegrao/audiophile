@@ -1,0 +1,20 @@
+{
+  "name": "audiophile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Audiophile workspace",
+  "main": "index.js",
+  "author": "Leonardo Negrao",
+  "license": "MIT",
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "husky": "^7.0.0"
+  },
+  "scripts": {
+    "prepare": "husky install"
+  }
+}
