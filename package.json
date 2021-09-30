@@ -12,9 +12,16 @@
   "devDependencies": {
     "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.2.0",
+    "cz-conventional-changelog": "^3.3.0",
     "husky": "^7.0.0"
   },
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "commit": "cz"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
