@@ -6,9 +6,11 @@
   "main": "index.js",
   "author": "Leonardo Negrao",
   "license": "MIT",
-  "workspaces": [
-    "packages/*"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "devDependencies": {
     "@commitlint/cli": "^13.2.0",
     "@commitlint/config-conventional": "^13.2.0",
@@ -17,11 +19,18 @@
   },
   "scripts": {
     "prepare": "husky install",
-    "commit": "cz"
+    "commit": "cz",
+    "ui": "yarn workspace @audiophile/ui",
+    "ui:test": "yarn workspace @audiophile/ui test",
+    "ui:start": "yarn workspace @audiophile/ui start",
+    "ui:build": "yarn workspace @audiophile/ui build"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "eslint": "^7.32.0"
   }
 }

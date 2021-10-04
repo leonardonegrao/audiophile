@@ -1,0 +1,82 @@
+import { useState } from 'react';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { RadioField } from './index';
+
+<Meta title="Components/Common/Form/RadioField" component={RadioField.Radio} />
+
+# RadioField
+
+The `RadioField` is a compound of two components: `RadioField.Radio` and `RadioField.RadioGroup`.
+
+The `RadioField.Radio` is a component for selectable options, it must be used within `RadioField.RadioGroup` to be interactive.
+
+export const Template = (args) => {
+  const [value, setValue] = useState(args.defaultValue);
+  return (
+    <RadioField.RadioGroup defaultValue={value} onChange={(value) => setValue(value)} {...args}>
+      {args.options.map((option) => (
+        <RadioField.Radio value={option.value}>{option.label}</RadioField.Radio>
+      ))}
+    </RadioField.RadioGroup>
+  );
+};
+
+<Story
+  name="Default"
+  args={{
+    defaultValue: 1,
+    options: [{ value: 1, label: 'Option 1' }],
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+<ArgsTable of={RadioField.Radio} />
+
+# RadioGroup
+
+The `RadioField.RadioGroup` is the component that allows the `RadioField.Radio` to be dynamic.
+All cases require the `RadioField.Radio` to be inside of a `RadioField.RadioGroup`.
+
+This component controls two things: behavior with `defaultValue` and `onChange`, and appearance with `layout` and
+`widthBehavior`.
+
+<ArgsTable of={RadioField.RadioGroup} />
+
+## Row layout
+
+<Canvas>
+  <Story
+    name="Row layout"
+    args={{
+      layout: 'row',
+      defaultValue: 1,
+      options: [
+        { value: 1, label: 'Option 1' },
+        { value: 2, label: 'Option 2' },
+        { value: 3, label: 'Option 3' },
+      ],
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Column layout
+
+<Canvas>
+  <Story
+    name="Column layout"
+    args={{
+      layout: 'column',
+      defaultValue: 1,
+      options: [
+        { value: 1, label: 'Option 1' },
+        { value: 2, label: 'Option 2' },
+        { value: 3, label: 'Option 3' },
+      ],
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
