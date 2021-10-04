@@ -1,0 +1,113 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import Button, { ButtonProps } from './index';
+
+<Meta title="Components/Common/Button" component={Button} />
+
+# Button
+
+The main Button component. It has three variants: `primary`, `secondary` and `tertiary`.
+
+The arguments below are only the custom arguments, all the attributes that the `<button>` of HTML5
+receives, this component also accepts.
+
+<Story
+  name="Default"
+  args={{
+    children: 'Click me',
+    disabled: false,
+  }}
+>
+  {Template.bind({})}
+</Story>
+
+export const Template = (args) => <Button {...args} />;
+
+<ArgsTable of={Button} />
+
+## Primary
+
+<Canvas>
+  <Story
+    name="Primary"
+    args={{
+      children: 'Button',
+      variant: 'primary',
+      disabled: false,
+      widthBehavior: 'fixed',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Secondary
+
+<Canvas>
+  <Story
+    name="Secondary"
+    args={{
+      children: 'Button',
+      variant: 'secondary',
+      disabled: false,
+      widthBehavior: 'fixed',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Tertiary
+
+<Canvas>
+  <Story
+    name="Tertiary"
+    args={{
+      children: 'Button',
+      variant: 'tertiary',
+      disabled: false,
+      widthBehavior: 'fixed',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Disabled
+
+The `disabled` argument works on all variants, tweaking the opacity and the cursor.
+
+<Canvas>
+  <Story
+    name="Primary Disabled"
+    args={{
+      children: 'Button',
+      variant: 'primary',
+      disabled: true,
+      widthBehavior: 'fixed',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Secondary Disabled"
+    args={{
+      children: 'Button',
+      variant: 'secondary',
+      disabled: true,
+      widthBehavior: 'fixed',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+  <Story
+    name="Tertiary Disabled"
+    args={{
+      children: 'Button',
+      variant: 'tertiary',
+      disabled: true,
+      widthBehavior: 'fixed',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

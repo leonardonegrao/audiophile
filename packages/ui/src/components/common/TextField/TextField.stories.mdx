@@ -1,0 +1,64 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import TextField, { TextFieldProps } from './index';
+
+<Meta title="Components/Common/Form/TextField" component={TextField} />
+
+# TextField
+
+Component that must be used instead of `input` on forms.
+
+export const Template = (args) => <TextField {...args} />;
+
+<ArgsTable of={TextField} />
+
+## Default state
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      label: 'Name',
+      placeholder: 'Insert your name',
+      fieldName: 'name',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Invalid state
+
+<Canvas>
+  <Story
+    name="Invalid"
+    args={{
+      label: 'Username',
+      placeholder: 'Insert your username',
+      value: '@#!!',
+      isInvalid: true,
+      invalidMessage: 'Special characters not allowed',
+      fieldName: 'username',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Disabled state
+
+<Canvas>
+  <Story
+    name="Disabled"
+    args={{
+      label: 'Confirm password',
+      placeholder: 'Re-type your password',
+      isInvalid: false,
+      invalidMessage: 'Passwords do not match',
+      fieldName: 'password-confirmation',
+      disabled: true,
+      disabledMessage: 'Create a password first',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

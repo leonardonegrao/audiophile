@@ -1,0 +1,49 @@
+{
+  "name": "@audiophile/ui",
+  "version": "0.1.0",
+  "private": true,
+  "main": "src/App.tsx",
+  "dependencies": {
+    "@react-theming/storybook-addon": "^1.1.1",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "eslint": "^7.32.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-scripts": "4.0.3",
+    "styled-components": "5.3.1",
+    "typescript": "^4.1.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/react": "^6.3.8",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/styled-components": "^5.1.14",
+    "babel-loader": "^8.2.2"
+  },
+  "scripts": {
+    "test": "react-scripts test",
+    "start": "start-storybook -p 6006",
+    "build": "build-storybook"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "rules": {
+      "indent": ["error", 2],
+      "no-console": ["warn", { "allow": ["warn", "error"] }],
+      "semi": ["error", "always"],
+      "quotes": ["error", "single"]
+    }
+  }
+}
