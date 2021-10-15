@@ -40,10 +40,27 @@
       "react-app/jest"
     ],
     "rules": {
-      "indent": ["error", 2],
-      "no-console": ["warn", { "allow": ["warn", "error"] }],
-      "semi": ["error", "always"],
-      "quotes": ["error", "single"]
+      "indent": [
+        "error",
+        2
+      ],
+      "no-console": [
+        "warn",
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+      ],
+      "semi": [
+        "error",
+        "always"
+      ],
+      "quotes": [
+        "error",
+        "single"
+      ]
     }
   }
 }
