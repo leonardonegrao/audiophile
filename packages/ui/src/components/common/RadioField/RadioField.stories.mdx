@@ -1,80 +1,62 @@
 import { useState } from 'react';
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { RadioField } from './index';
+import RadioField from './index';
 
-<Meta title="Components/Common/Form/RadioField" component={RadioField.Radio} />
+<Meta title="Components/Common/Form/RadioField" component={RadioField} />
 
 # RadioField
 
-The `RadioField` is a compound of two components: `RadioField.Radio` and `RadioField.RadioGroup`.
-
-The `RadioField.Radio` is a component for selectable options, it must be used within `RadioField.RadioGroup` to be interactive.
+The `RadioField` allows an user to select a value from a list of options.
 
 export const Template = (args) => {
-  const [value, setValue] = useState(args.defaultValue);
+  const [value, setValue] = useState(args.value);
   return (
-    <RadioField.RadioGroup defaultValue={value} onChange={(value) => setValue(value)} {...args}>
-      {args.options.map((option) => (
-        <RadioField.Radio value={option.value}>{option.label}</RadioField.Radio>
-      ))}
-    </RadioField.RadioGroup>
+    <RadioField
+      {...args}
+      value={value}
+      onChange={(newValue) => {
+        setValue(newValue);
+      }}
+    />
   );
 };
 
-<Story
-  name="Default"
-  args={{
-    defaultValue: 1,
-    options: [{ value: 1, label: 'Option 1' }],
-  }}
->
-  {Template.bind({})}
-</Story>
-
-<ArgsTable of={RadioField.Radio} />
-
-# RadioGroup
-
-The `RadioField.RadioGroup` is the component that allows the `RadioField.Radio` to be dynamic.
-All cases require the `RadioField.Radio` to be inside of a `RadioField.RadioGroup`.
-
-This component controls two things: behavior with `defaultValue` and `onChange`, and appearance with `layout` and
-`widthBehavior`.
-
-<ArgsTable of={RadioField.RadioGroup} />
-
-## Row layout
-
 <Canvas>
   <Story
-    name="Row layout"
+    name="Default"
     args={{
-      layout: 'row',
-      defaultValue: 1,
+      name: 'demo',
       options: [
-        { value: 1, label: 'Option 1' },
-        { value: 2, label: 'Option 2' },
-        { value: 3, label: 'Option 3' },
+        { id: 1, label: 'Option 1', value: 1 },
+        { id: 2, label: 'Option 2', value: 2 },
       ],
+      value: 1,
     }}
   >
     {Template.bind({})}
   </Story>
 </Canvas>
 
-## Column layout
+<ArgsTable of={RadioField} />
+
+## Disabled Option
+
+It's possible to disable an option, the disabled option will be grayed out and won't be selectable.
+To allow more flexibility, the prop `isOptionDisabled` receives a function that impletements the logic that
+determines if an option is disabled or not.
 
 <Canvas>
   <Story
-    name="Column layout"
+    name="Disabled Option"
     args={{
-      layout: 'column',
-      defaultValue: 1,
+      name: 'demo',
       options: [
-        { value: 1, label: 'Option 1' },
-        { value: 2, label: 'Option 2' },
-        { value: 3, label: 'Option 3' },
+        { id: 1, label: 'Option 1', value: 1 },
+        { id: 2, label: 'Option 2', value: 2 },
+        { id: 3, label: 'Option 3', value: 3 },
       ],
+      value: 1,
+      isOptionDisabled: (option) => option.id === 2,
     }}
   >
     {Template.bind({})}
