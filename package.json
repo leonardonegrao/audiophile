@@ -23,7 +23,8 @@
     "ui": "yarn workspace @audiophile/ui",
     "ui:test": "yarn workspace @audiophile/ui test",
     "ui:start": "yarn workspace @audiophile/ui start",
-    "ui:build": "yarn workspace @audiophile/ui build"
+    "ui:build": "yarn workspace @audiophile/ui build",
+    "ui:lint": "yarn workspace @audiophile/ui eslint ."
   },
   "config": {
     "commitizen": {
