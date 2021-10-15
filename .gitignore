@@ -1,3 +1,38 @@
+# root
 /node_modules
 /assets
 data.json
+
+# ui
+/packages/ui/node_modules
+/packages/ui/.pnp
+/packages/ui/.pnp.js
+/packages/ui/coverage
+/packages/ui/build
+/packages/ui/.DS_Store
+/packages/ui/.env.local
+/packages/ui/.env.development.local
+/packages/ui/.env.test.local
+/packages/ui/.env.production.local
+/packages/ui/npm-debug.log*
+/packages/ui/yarn-debug.log*
+/packages/ui/yarn-error.log*
+
+# webapp
+/packages/webapp/node_modules
+/packages/webapp/.pnp
+/packages/webapp/.pnp.js
+/packages/webapp/coverage
+/packages/webapp/build
+/packages/webapp/.next/
+/packages/webapp/out/
+/packages/webapp/.DS_Store
+/packages/webapp/*.pem
+/packages/webapp/npm-debug.log*
+/packages/webapp/yarn-debug.log*
+/packages/webapp/yarn-error.log*
+/packages/webapp/.env.local
+/packages/webapp/.env.development.local
+/packages/webapp/.env.test.local
+/packages/webapp/.env.production.local
+/packages/webapp/.vercel
