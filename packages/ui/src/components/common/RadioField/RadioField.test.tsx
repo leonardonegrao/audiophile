@@ -1,37 +1,80 @@
-import user from '@testing-library/user-event';
 import { render, screen } from '../../../test-utils';
+import user from '@testing-library/user-event';
 
-import { RadioField } from '.';
+import RadioField, { Option } from '.';
 
 describe('<RadioField />', () => {
   it('should render component', () => {
-    render(
-      <RadioField.RadioGroup>
-        <RadioField.Radio value="1">Option 1</RadioField.Radio>
-        <RadioField.Radio value="2">Option 2</RadioField.Radio>
-        <RadioField.Radio value="3">Option 3</RadioField.Radio>
-      </RadioField.RadioGroup>
-    );
-    
-    const radioGroupElement = screen.getByRole('radiogroup');
+    const radioFieldProps = {
+      name: 'demo',
+      options: [{ id: 1, label: 'Option 1', value: 1 }, { id: 2, label: 'Option 2', value: 2 },],
+      value: 1,
+      onChange: (newValue: string | number) => {}
+    };
 
-    expect(radioGroupElement).toBeInTheDocument();
+    render(
+      <RadioField
+        data-testid="radio-field"
+        name={radioFieldProps.name}
+        options={radioFieldProps.options}
+        value={radioFieldProps.value}
+        onChange={radioFieldProps.onChange}
+      />
+    );
+
+    const radioField = screen.getByTestId('radio-field');
+    
+    expect(radioField).toBeInTheDocument();
   });
 
-  it('should trigger onChange when clicked', () => {
+  it('should execute onChange callback when option is clicked', () => {
     const onChangeMock = jest.fn();
-    
+    const radioFieldProps = {
+      name: 'demo',
+      options: [{ id: 1, label: 'Option 1', value: 1 }, { id: 2, label: 'Option 2', value: 2 },],
+      value: 1,
+      onChange: (newValue: string | number) => { onChangeMock(newValue); }
+    };
+
     render(
-      <RadioField.RadioGroup onChange={onChangeMock}>
-        <RadioField.Radio value="1">Option 1</RadioField.Radio>
-        <RadioField.Radio value="2">Option 2</RadioField.Radio>
-        <RadioField.Radio value="3">Option 3</RadioField.Radio>
-      </RadioField.RadioGroup>
+      <RadioField
+        name={radioFieldProps.name}
+        options={radioFieldProps.options}
+        value={radioFieldProps.value}
+        onChange={radioFieldProps.onChange}
+      />
     );
 
-    const optionElement = screen.getByText('Option 1');
-    user.click(optionElement);
+    const radioFieldOption = screen.getByText(radioFieldProps.options[1].label);
+    user.click(radioFieldOption);
 
-    expect(onChangeMock).toHaveBeenCalled();
+    expect(onChangeMock).toHaveBeenCalledTimes(1);
+    expect(onChangeMock).toHaveBeenCalledWith(radioFieldProps.options[1].value);
+  });
+
+  it('should not execute onChange if option is disabled', () => {
+    const onChangeMock = jest.fn();
+    const radioFieldProps = {
+      name: 'demo',
+      options: [{ id: 1, label: 'Option 1', value: 1 }, { id: 2, label: 'Option 2', value: 2 },],
+      value: 1,
+      onChange: (newValue: string | number) => { onChangeMock(newValue); },
+      isOptionDisabled: (option: Option) => option.id === 2,
+    };
+
+    render(
+      <RadioField
+        name={radioFieldProps.name}
+        options={radioFieldProps.options}
+        value={radioFieldProps.value}
+        onChange={radioFieldProps.onChange}
+        isOptionDisabled={radioFieldProps.isOptionDisabled}
+      />
+    );
+
+    const radioFieldOption = screen.getByText(radioFieldProps.options[1].label);
+    user.click(radioFieldOption);
+
+    expect(onChangeMock).not.toHaveBeenCalled();
   });
 });
