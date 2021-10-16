@@ -1,0 +1,87 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import Logo from './index';
+
+<Meta title="Components/Atoms/Logo" component={Logo} />
+
+export const Template = (args) => <Logo {...args} />;
+
+# Logo
+
+The `Logo` component is used to display the logo of the application. It's flexible to be used in different contexts.
+
+<Story name="Default" args={{ color: 'primary' }}>
+  {Template.bind({})}
+</Story>
+
+<ArgsTable of={Logo} />
+
+## Colors
+
+The component has some predefined colors, and can receive a custom hexadecimal.
+
+### Light
+
+Light variant, to contrast with dark backgrounds.
+
+<Canvas>
+  <Story name="Light" args={{ color: 'light' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Dark
+
+Dark variant, to contrast with light backgrounds.
+
+<Canvas>
+  <Story name="Dark" args={{ color: 'dark' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Custom color
+
+Dark variant, to contrast with light backgrounds.
+
+<Canvas>
+  <Story name="Custom color" args={{ color: '#5AABD9' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Sizes
+
+The component can be rendered in different sizes. There are some predefined sizes (`small`, `medium`, `large`)
+and a custom one can be passed as the number of pixels of the width.
+
+### Small
+
+<Canvas>
+  <Story name="Small" args={{ size: 'small' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Medium
+
+<Canvas>
+  <Story name="Medium" args={{ size: 'medium' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Large
+
+<Canvas>
+  <Story name="Large" args={{ size: 'large' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Custom size
+
+<Canvas>
+  <Story name="Custom size" args={{ size: 500 }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
