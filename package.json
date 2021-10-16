@@ -14,13 +14,17 @@
   "scripts": {
     "prepare": "husky install",
     "commit": "cz",
+
     "lerna:bootstrap": "lerna bootstrap --use-workspaces",
     "lint": "lerna run lint",
     "test": "lerna run test",
+
     "ui": "yarn workspace @audiophile/ui",
     "ui:test": "yarn workspace @audiophile/ui test",
+    "ui:lint": "yarn workspace @audiophile/ui lint",
     "ui:start": "yarn workspace @audiophile/ui start",
     "ui:build": "yarn workspace @audiophile/ui build",
+
     "webapp": "yarn workspace @audiophile/webapp"
   },
   "config": {
