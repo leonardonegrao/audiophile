@@ -1,0 +1,30 @@
+name: General CI
+
+on:
+  push:
+    branches: [main, development]
+  pull_request:
+    branches: [main, development]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2.4.1
+        with:
+          node-version: 14.17.6
+
+      - name: Setup project
+        run: |
+          npm install -g yarn
+          yarn install
+          yarn lerna:bootstrap
+
+      - name: Run checks
+        run: |
+          yarn lint
+          yarn test
