@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": ""
   },
   "dependencies": {
     "@audiophile/ui": "file:../ui",
@@ -14,11 +15,5 @@
     "next": "11.1.2",
     "react": "17.0.2",
     "react-dom": "17.0.2"
-  },
-  "devDependencies": {
-    "@types/node": "^12.12.21",
-    "@types/react": "^17.0.2",
-    "@types/react-dom": "^17.0.1",
-    "typescript": "4.0"
   }
 }

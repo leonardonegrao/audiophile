@@ -1,5 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn ui:lint
-yarn ui:test
+yarn lint
+yarn test
+exit 1

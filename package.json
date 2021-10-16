@@ -11,23 +11,16 @@
       "packages/*"
     ]
   },
-  "devDependencies": {
-    "@commitlint/cli": "^13.2.0",
-    "@commitlint/config-conventional": "^13.2.0",
-    "cz-conventional-changelog": "^3.3.0",
-    "eslint-config-next": "11.1.2",
-    "husky": "^7.0.0",
-    "lerna": "^4.0.0",
-    "typescript": "4.4.4"
-  },
   "scripts": {
     "prepare": "husky install",
     "commit": "cz",
+    "lerna:bootstrap": "lerna bootstrap --use-workspaces",
+    "lint": "lerna run lint",
+    "test": "lerna run test",
     "ui": "yarn workspace @audiophile/ui",
     "ui:test": "yarn workspace @audiophile/ui test",
     "ui:start": "yarn workspace @audiophile/ui start",
     "ui:build": "yarn workspace @audiophile/ui build",
-    "ui:lint": "yarn workspace @audiophile/ui eslint .",
     "webapp": "yarn workspace @audiophile/webapp"
   },
   "config": {
@@ -38,5 +31,28 @@
   "dependencies": {
     "@audiophile/ui": "file:packages/ui",
     "@audiophile/webapp": "file:packages/webapp"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@commitlint/cli": "^13.2.0",
+    "@commitlint/config-conventional": "^13.2.0",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/react": "^6.3.8",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.12.21",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.1",
+    "@types/styled-components": "^5.1.14",
+    "babel-loader": "^8.2.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint-config-next": "11.1.2",
+    "husky": "^7.0.0",
+    "lerna": "^4.0.0",
+    "typescript": "4.0"
   }
 }
