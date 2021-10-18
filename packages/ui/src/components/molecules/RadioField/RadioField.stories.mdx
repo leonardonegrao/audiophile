@@ -1,0 +1,64 @@
+import { useState } from 'react';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import RadioField from './index';
+
+<Meta title="Components/Molecules/RadioField" component={RadioField} />
+
+# RadioField
+
+The `RadioField` allows an user to select a value from a list of options.
+
+export const Template = (args) => {
+  const [value, setValue] = useState(args.value);
+  return (
+    <RadioField
+      {...args}
+      value={value}
+      onChange={(newValue) => {
+        setValue(newValue);
+      }}
+    />
+  );
+};
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      name: 'demo',
+      options: [
+        { id: 1, label: 'Option 1', value: 1 },
+        { id: 2, label: 'Option 2', value: 2 },
+      ],
+      value: 1,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable of={RadioField} />
+
+## Disabled Option
+
+It's possible to disable an option, the disabled option will be grayed out and won't be selectable.
+To allow more flexibility, the prop `isOptionDisabled` receives a function that impletements the logic that
+determines if an option is disabled or not.
+
+<Canvas>
+  <Story
+    name="Disabled Option"
+    args={{
+      name: 'demo',
+      options: [
+        { id: 1, label: 'Option 1', value: 1 },
+        { id: 2, label: 'Option 2', value: 2 },
+        { id: 3, label: 'Option 3', value: 3 },
+      ],
+      value: 1,
+      isOptionDisabled: (option) => option.id === 2,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
