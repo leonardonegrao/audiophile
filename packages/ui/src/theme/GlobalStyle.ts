@@ -17,4 +17,14 @@ export default createGlobalStyle`
     font-family: ${({ theme }) => theme.typography.fontFamily};
   }
 
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
 `;

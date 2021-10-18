@@ -3,7 +3,7 @@ import { DefaultTheme, Typography } from 'styled-components';
 const breakpoints = {
   sm: 375,
   md: 768,
-  lg: 1440,
+  lg: 1200,
 };
 
 const colors = {

@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css, DefaultTheme } from 'styled-components';
 
 type Variant = 'heading1' | 'heading2' | 'heading3' | 'heading4' | 'heading5' | 'heading6' | 'overline' | 'subtitle' | 'body';
@@ -15,12 +16,14 @@ const TextVariantMap = (variant: Variant) => css`
   text-transform: ${({ theme }) => getTextVariantFromTheme(theme, variant).textTransform || 'none'};
 `;
 
-interface StyledTextProps {
+interface StyledTextProps extends React.ComponentPropsWithoutRef<'span'> {
   variant?: Variant;
   fontSize?: number;
-  fontWeight?: 'bold' | 'semibold' | 'regular'
+  fontWeight?: 'bold' | 'semibold' | 'regular' | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
   lineHeight?: number;
   letterSpacing?: number;
+  textTransform?: 'uppercase' | 'lowercase' | 'capitalize';
+  opacity?: number;
 }
 
 const StyledText = styled.span<StyledTextProps>`
@@ -43,16 +46,19 @@ const StyledText = styled.span<StyledTextProps>`
   ${({ letterSpacing }) => letterSpacing && css`
     letter-spacing: ${letterSpacing}px;
   `}
+
+  ${({ textTransform }) => textTransform && css`
+    text-transform: ${textTransform};
+  `}
+
+  ${({ opacity }) => opacity && css`
+    opacity: ${opacity};
+  `}
 `;
 
-interface TextProps {
+interface TextProps extends StyledTextProps {
   children: React.ReactNode;
   as?: React.ElementType;
-  fontSize?: number;
-  fontWeight?: 'bold' | 'semibold' | 'regular'
-  lineHeight?: number;
-  letterSpacing?: number;
-  variant?: Variant;
 }
 
 export default function Text({

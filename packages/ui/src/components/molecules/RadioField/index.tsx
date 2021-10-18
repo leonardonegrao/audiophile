@@ -1,7 +1,6 @@
-import { useState } from 'react';
 import styled, { css } from 'styled-components';
 
-import Text from '../Text';
+import Text from '../../atoms/Text';
 
 const StyledRadioField = styled.fieldset`
   display: flex;

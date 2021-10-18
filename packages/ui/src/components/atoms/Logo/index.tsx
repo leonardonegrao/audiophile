@@ -1,5 +1,7 @@
 import React from 'react';
 
+import theme from '../../../theme';
+
 type PredefinedSize = 'small' | 'medium' | 'large';
 type PredefinedColor = 'light' | 'dark' | 'primary';
 
@@ -34,9 +36,9 @@ export default function Logo({ size = 'small', color = 'primary' }: LogoProps) {
 
   const colorResolver = (color: PredefinedColor | string) => {
     const predefinedColors: { [K in PredefinedColor]: string } = {
-      light: '#FFFFFF',
-      dark: '#101010',
-      primary: '#D87D4A'
+      light: theme.colors.white.main,
+      dark: theme.colors.black.light,
+      primary: theme.colors.primary.main,
     };
 
     const isOfPredefinedColor = Object.keys(predefinedColors).includes(color as PredefinedColor);
@@ -48,6 +50,7 @@ export default function Logo({ size = 'small', color = 'primary' }: LogoProps) {
 
   return (
     <svg width={width} viewBox="0 0 143 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <title>audiophile</title>
       <path
         fillRule="evenodd"
         clipRule="evenodd"

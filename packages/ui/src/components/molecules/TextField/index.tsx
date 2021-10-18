@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 export interface TextFieldProps extends React.ComponentPropsWithoutRef<'input'> {
@@ -94,9 +94,9 @@ export default function TextField({
   fieldName,
   ...rest
 }: TextFieldProps) {
-  const [title, setTitle] = useState<string>('');
+  const [title, setTitle] = React.useState<string>('');
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (isInvalid) {
       setTitle(invalidMessage);
     } else if (disabled) {
