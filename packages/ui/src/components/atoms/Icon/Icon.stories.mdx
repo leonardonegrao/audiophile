@@ -1,0 +1,92 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import Icon from './index';
+
+<Meta title="Components/Atoms/Icon" component={Icon} />
+
+export const Template = (args) => <Icon {...args} />;
+
+# Icon
+
+The `Icon` component is used to display one of the available options of icons.
+
+<ArgsTable of={Icon} />
+
+## Color
+
+The component has some predefined colors, and can receive a custom hexadecimal.
+
+### Light
+
+Light variant, to contrast with dark backgrounds.
+
+<Canvas>
+  <Story name="Light" args={{ icon: 'menu', color: 'light' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Dark
+
+Dark variant, to contrast with light backgrounds.
+
+<Canvas>
+  <Story name="Dark" args={{ icon: 'menu', color: 'dark' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Custom color
+
+Dark variant, to contrast with light backgrounds.
+
+<Canvas>
+  <Story name="Custom color" args={{ icon: 'menu', color: '#5AABD9' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Size
+
+Any numeric value can be passed to define width. The height is calculated automatically to avoid distortion.
+
+<Canvas>
+  <Story
+    name="Custom size"
+    args={{
+      icon: 'menu',
+      size: 50,
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Examples
+
+Some examples of icons:
+
+### Menu icon
+
+<Canvas>
+  <Story
+    name="Menu icon"
+    args={{
+      icon: 'menu',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+### Cart icon
+
+<Canvas>
+  <Story
+    name="Cart icon"
+    args={{
+      icon: 'cart',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>

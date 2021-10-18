@@ -1,4 +1,5 @@
 import UIProvider from '../src/theme/UIProvider';
+import { UIProvidersContextProvider } from '../src/contexts/UIProvidersContext';
 import { addDecorator } from '@storybook/react';
 
 export const parameters = {
@@ -9,12 +10,31 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  backgrounds: {
+    default: 'light',
+    values: [
+      {
+        name: 'light',
+        value: '#FAFAFA',
+      },
+      {
+        name: 'dark',
+        value: '#101010',
+      },
+    ],
+  },
 }
+
+const LinkMock = (props) => <span>{props.children}</span>;
 
 export const decorators = [
   (Story) => (
     <UIProvider>
-      <Story />
+      <UIProvidersContextProvider
+        providers={{ Link: LinkMock }}
+      >
+        <Story />
+      </UIProvidersContextProvider>
     </UIProvider>
   )
 ];

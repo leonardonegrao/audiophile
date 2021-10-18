@@ -21,6 +21,7 @@
 
     "ui": "yarn workspace @audiophile/ui",
     "ui:test": "yarn workspace @audiophile/ui test",
+    "ui:test:watch": "yarn workspace @audiophile/ui test:watch",
     "ui:lint": "yarn workspace @audiophile/ui lint",
     "ui:start": "yarn workspace @audiophile/ui start",
     "ui:build": "yarn workspace @audiophile/ui build",

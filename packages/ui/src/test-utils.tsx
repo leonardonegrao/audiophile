@@ -3,11 +3,21 @@
 import React from 'react';
 import { render, RenderOptions } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
+import { UIProvidersContextProvider, LinkProps } from './contexts/UIProvidersContext';
 import theme from './theme';
 
-const AllTheProviders: React.FC = ({ children }) => (
+interface AllTheProvidersProps {
+  providers?: any;
+}  
+
+const AllTheProviders: React.FC<AllTheProvidersProps> = ({ children, providers = {} }) => (
   <ThemeProvider theme={theme}>
-    {children}
+    <UIProvidersContextProvider providers={{
+      Link: (props: LinkProps) => <span>{props.children}</span>,
+      ...providers,
+    }}>
+      {children}
+    </UIProvidersContextProvider>
   </ThemeProvider>
 );
 

@@ -1,0 +1,43 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import Header from './index';
+
+<Meta title="Components/Organisms/Header" component={Header} />
+
+# Header
+
+export const Template = (args) => {
+  return <Header {...args} />;
+};
+
+<ArgsTable of={Header} />
+
+<Canvas>
+  <Story
+    name="Default"
+    args={{
+      categories: [
+        {
+          id: '1',
+          title: 'Headphones',
+          slug: 'headphones',
+          image: {
+            id: '1',
+            url: 'https://www.datocms-assets.com/56931/1634408967-headphones-img.png',
+          },
+        },
+      ],
+      order: {
+        id: '1',
+        items: [],
+        total: 0,
+        onChange: () => {},
+      },
+    }}
+    parameters={{
+      backgrounds: { default: 'dark' },
+      layout: 'fullscreen',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
